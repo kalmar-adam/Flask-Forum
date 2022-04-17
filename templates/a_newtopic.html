@@ -1,0 +1,14 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<h2>Add new topic</h2>
+<form action="{{url_for('admin.newtopic')}}" method="post">
+    <table>
+        <tr>
+            <td>Topic name: </td>
+            <td><input type="text" name="tname"></td>
+        </tr>
+    </table>
+    <button>Create new topic</button>
+</form>
+{%endblock%}

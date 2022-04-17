@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+    
+}
+a:hover, button{
+    transition: ease 0.25s;
+}
+h1, h2, h3, p, a, td, th {
+    padding: 3px;
+    color: rgb(223, 221, 221);
+    text-shadow: 3px 3px 2px rgb(43, 36, 36);
+}
+
+.error{
+    color:rgb(252, 98, 98);
+}
+.succes{
+    color:rgb(0, 146, 32);
+}
+body {
+    background-color: rgb(24, 24, 24);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.box {
+    background-color: rgb(56, 56, 56);
+    border: 2px solid rgb(34, 34, 34);
+    border-radius: 5px;
+    margin: 5px 0;
+    padding: 10px;
+}
+
+#wrapper {
+    width: 1000px;
+    margin: 0 auto;
+}
+#header {
+    height: 60px;
+    width: 100%;
+    padding: 0 20px;
+    background-image: linear-gradient(rgb(56, 56, 56) 75%, rgb(24, 24, 24));
+}
+
+#menu {
+    width: fit-content;
+}
+#menu a, a {
+    display: inline-block;
+    padding: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+a:hover {
+    color: white;
+    text-shadow: 3px 3px 2px black;
+}
+.table1 {
+    width: 100%;
+}
+.table1 tr:hover{
+    background-color: rgb(41, 41, 41);
+}
+.table1 td {
+    padding: 5px;
+    border: 2px solid rgb(39, 39, 39);
+    
+}
+
+button{
+    padding: 5px;
+    background-color: rgb(207, 207, 207);
+    border: 2px solid black;
+    font-weight: bold;
+    font-size: 1.2em;
+    border-radius: 10px;
+}
+button:hover{
+    background-color: rgb(172, 172, 172);
+}

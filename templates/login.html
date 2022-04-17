@@ -1,0 +1,24 @@
+{%extends 'base.html'%}
+
+{%block content%} 
+<h3>Login</h3>
+{%for m in get_flashed_messages()%}
+<p style="color:rgb(252, 98, 98)">{{m}}</p>
+{%endfor%}
+<form action="/login" method="post">
+    <table>
+        <tr>
+            <td>Name: </td>
+            <td><input type="text" name="name" autocomplete="off" required></td>
+        </tr>
+        <tr>
+            <td>Password: </td>
+            <td><input type="password" name="pw" required></td>
+        </tr>
+    </table>
+    <button>Login</button>
+</form>
+
+
+{%endblock%}
+

@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+
+{%block content%} 
+<h3>My profile</h3>
+{%for messages in get_flashed_messages(with_categories=true)%}
+        <p class="{{messages[0]}}">{{messages[1]}}</p>
+{%endfor%}
+{%if user%}
+<form action="/myprofile" method="post">
+    <table>
+        <tr>
+            <td>Name: </td>
+            <td>{{user.name}}</td>
+        </tr>
+        <tr>
+            <td>Old password: </td>
+            <td><input type="password" name="opw" required></td>
+        </tr>
+        <tr>
+            <td>New password: </td>
+            <td><input type="password" name="npw" required></td>
+        </tr>
+    </table>
+    <button>Save</button>
+</form>
+
+{%endif%}
+{%endblock%}
+

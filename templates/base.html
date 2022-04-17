@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='mystyle.css') }}">
+</head>
+<body>
+    <div id="header">
+        <h1>Forum</h1>
+    </div>
+    <div id="wrapper">
+        <div id="menu"  class="box">
+        <a href="{{url_for('index')}}">Home</a>
+        {%if not g.user.getValue("id")%}
+        
+        <a href="{{url_for('auth.login')}}">Login</a>
+        <a href="{{url_for('auth.reg')}}">Registration</a>
+        {%else%}
+        <a href="{{url_for('auth.myprofile')}}">My profile</a>
+            {%if g.user.getValue("role")==1%}
+            <a href="{{url_for('admin.admin')}}">Admin</a>
+            {%endif%}
+        
+        <a href="{{url_for('auth.logout')}}">Logout</a>    
+        {%endif%}
+        </div>
+        <div id="content"  class="box">
+           
+            {% if g.user.getValue('name') %}
+                <p>You are logged in <b>{{g.user.getValue('name')}}</b></p>
+            {%endif%}
+            <a name="up" style="display: inline;"></a>
+            {% block content %}{% endblock %}
+            <a name="down" style="display: inline;"></a>
+        </div>
+        <div class="box">
+            <h3 style="text-align:center;">Powered by Flask</h3>
+        </div>
+    </div>
+    
+</body>
+</html>

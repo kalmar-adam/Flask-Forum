@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+
+
+{% block content %}
+
+<h3>Forum</h3>
+<table class="table1">
+
+    {%for topic in t%}
+    {%if topic.id!=None%}
+    <tr>
+        <td><a target="_self" href="{{url_for('comments.topic', tid=topic.id)}}">{{topic.name}}</a></td>
+        <td>Last comment: {{topic.lastcommentdate[:19]}}</td>
+        {%if g.user.getValue('role')==1%}
+        <td><a href="{{url_for('admin.edittopic', tid=topic.id)}}">EDIT TOPIC</a></td>
+        {%endif%}
+    </tr>    
+    {%endif%}
+    {%endfor%}
+    
+</table>
+
+{%endblock%}

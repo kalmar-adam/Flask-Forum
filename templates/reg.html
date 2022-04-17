@@ -1,0 +1,28 @@
+{%extends 'base.html'%}
+
+{%block content%} 
+<h3>Registration</h3>
+{%for m in get_flashed_messages()%}
+<p class="error">{{m}}</p>
+{%endfor%}
+<form action="/reg" method="post">
+    <table>
+        <tr>
+            <td>Name: </td>
+            <td><input type="text" name="name" autocomplete="off"></td>
+        </tr>
+        <tr>
+            <td>Password: </td>
+            <td><input type="password" name="pw1"></td>
+        </tr>
+        <tr>
+            <td>Password again: </td>
+            <td><input type="password" name="pw2"></td>
+        </tr>
+    </table>
+    <button>Registration</button>
+</form>
+
+
+{%endblock%}
+

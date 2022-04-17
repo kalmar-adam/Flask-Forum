@@ -1,0 +1,35 @@
+{%extends 'base.html'%}
+
+{%block content%}
+{%if users and users!=None%}
+    <h2>Users</h2>
+    <table class="table1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Role</th>
+            <th>RegDate</th>
+            <th>Banned?</th>
+            <th>BanOperation</th>
+        </tr>
+        {%for user in users%}
+        <tr>
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.role}}</td>
+            <td>{{user.regdate}}</td>
+            <td>{{user.banned}}</td>
+            {%if user.banned==0%}
+            <td><a href="{{url_for('admin.oneuser', userid=user.id)}}?op=ban">Ban</a></td>
+            {%else%}
+            <td><a href="{{url_for('admin.oneuser', userid=user.id)}}?op=unban">Unban</a></td>
+            {%endif%}
+        </tr>
+        {%endfor%}
+    </table>
+{%else%}
+    <h2>Admin page</h2>
+    <a href="{{url_for('admin.newtopic')}}">Create new topic</a><br>
+    <a href="{{url_for('admin.alluser')}}">Users</a>
+{%endif%}
+{%endblock%}

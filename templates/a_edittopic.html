@@ -1,0 +1,15 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<h2>Edit topic</h2>
+<form action="{{url_for('admin.edittopic', tid=topic.id)}}" method="POST">
+    <table>
+        <tr>
+            <td>Topic name: </td>
+            <td><input type="text" name="tname" value="{{topic.name}}"></td>
+        </tr>
+    </table>
+    <button>Rename topic</button><br>
+    <a style="float: right;" href="{{url_for('admin.edittopic', tid=topic.id)}}?t=delete">Delete topic</a>
+</form>
+{%endblock%}
