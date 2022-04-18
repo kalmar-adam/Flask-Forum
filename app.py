@@ -1,5 +1,5 @@
 #from secrets import token_hex
-from flask import Flask, Blueprint, redirect, render_template, request, session, g
+from flask import Flask, Blueprint, redirect, render_template, request, session, g, url_for
 from flask_bcrypt import Bcrypt
 from models import *
 from routes import auth, comments, admin
@@ -36,6 +36,9 @@ def index():
     topics=db.session.execute(stmt, {"uid":udata.getValue("id")}).all()
     return render_template('index.html', t=topics)
 
+@app.errorhandler(404)
+def notfound(e):
+    return redirect(url_for('index'))
 
 if __name__=="__main__":
     with app.app_context():
